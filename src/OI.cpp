@@ -46,7 +46,7 @@ OI::OI() {
 
 		togButton = new JoystickButton(joystickRight.get(), 10);
 		togLock = new ToggledPressedButtonScheduler(togButton->Grab(), togButton, new LockBall(), new UnlockBall());
- 		togLock->Start();
+ 		togLock->Start();//this is a scheduler that checks for when a button is pressed, and depending on when the button was pressed last either runs the first or second command.
 
 	//two drivers:
 				/*joystickLeft.reset(new Joystick(1));
