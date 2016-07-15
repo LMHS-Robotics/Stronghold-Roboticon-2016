@@ -11,10 +11,10 @@
 #include "Buttons/Trigger.h"
 #include "Joystick.h"
 
-class JoystickAnalogButton: public Trigger {
+class JoystickAnalogButton: public Trigger {//inherits from the WPILIB Trigger class, which has one function to call: Get()
 
 public:
-	JoystickAnalogButton(GenericHID* joystick, int axisNumber);
+	JoystickAnalogButton(GenericHID* joystick, int axisNumber);//this button requires an joystick and axis number as args
 
 		  bool Get();
 private:
