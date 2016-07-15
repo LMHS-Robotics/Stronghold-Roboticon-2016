@@ -11,7 +11,7 @@
 #include "WPILib.h"
 #include "Buttons/PressedButtonScheduler.h"
 
-class ToggledPressedButtonScheduler : public PressedButtonScheduler
+class ToggledPressedButtonScheduler : public PressedButtonScheduler//the pressed button scheduler allows for a creation of a toggle scheduler for two commands
 {
 protected:
         Command *m_otherCommand;
@@ -19,7 +19,7 @@ protected:
 public:
         ToggledPressedButtonScheduler(bool last, Trigger *button, Command *firstCommand, Command *secondCommand);
         virtual ~ToggledPressedButtonScheduler() {}
-        virtual void Execute();
+        virtual void Execute();//inherited from the PressedButtonScheduler Class
 };
 
 #endif
