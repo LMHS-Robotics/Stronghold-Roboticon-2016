@@ -35,7 +35,7 @@ void AutoUltrasonicDrive::Execute() {
 }
 // Make this return true when this Command no longer needs to run execute()
 bool AutoUltrasonicDrive::IsFinished() {
-    return Robot::launcher.get()->ultrasanicCalculation() > 10;
+    return Robot::launcher.get()->ultrasanicCalculation() < 24;//drives forward until 24 inches from tower
 }
 
 // Called once after isFinished returns true
