@@ -31,7 +31,7 @@ void AutonomousDriveForward::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutonomousDriveForward::Execute() {
-	Robot::driveTrain.get()->ForwardDrive();
+	Robot::driveTrain.get()->ForwardDrive();//3 second drive for lowbar autonomous
 }
 
 // Make this return true when this Command no longer needs to run execute()
