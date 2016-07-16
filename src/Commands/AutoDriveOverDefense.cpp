@@ -31,7 +31,7 @@ void AutoDriveOverDefense::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutoDriveOverDefense::Execute() {
-	Robot::driveTrain.get()->ForwardDrive();
+	Robot::driveTrain.get()->ForwardDrive();//drives forward for 4 seconds
 }
 
 // Make this return true when this Command no longer needs to run execute()
