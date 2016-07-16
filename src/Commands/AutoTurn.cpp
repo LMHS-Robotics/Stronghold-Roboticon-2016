@@ -17,7 +17,7 @@ void AutoTurn::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void AutoTurn::Execute()
 {
-	Robot::driveTrain.get()->Turn();
+	Robot::driveTrain.get()->Turn();//turns about 45 degrees to point at goal in lowbar autonomous
 }
 
 // Make this return true when this Command no longer needs to run execute()
