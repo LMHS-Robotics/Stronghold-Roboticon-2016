@@ -19,7 +19,7 @@ void LockBall::Initialize()
 void LockBall::Execute()
 {
 	Robot::flipperSub.get()->fipLock();
-	//Robot::launcher.get()->lock();
+	//Robot::launcher.get()->lock();//uses flipper and launcher to lock ball, however currently its a little unreliable, so it is in testing phase still.
 }
 
 // Make this return true when this Command no longer needs to run execute()
