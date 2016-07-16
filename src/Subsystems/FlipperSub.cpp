@@ -67,7 +67,7 @@ void FlipperSub::fipLock(){//used in the lock ball to hold flipper in place agai
 
 }
 
-void FlipperSub::resetTimer(){
+void FlipperSub::resetTimer(){//used in the autoflipper command to run flipper for a certain time in conjuction with the timeout of the command so the flipper will turn on after the launcher spins up in autonomous, and not as the launcher spins up.
 
 	x = 0;
 
