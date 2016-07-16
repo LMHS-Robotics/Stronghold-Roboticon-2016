@@ -30,7 +30,7 @@ void TankDrive::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void TankDrive::Execute() {
-	Robot::driveTrain.get()->JoyDrive(Robot::oi.get()->getJoystickLeft().get(), Robot::oi.get()->getJoystickRight().get());//uses two joysticks, future updates will use only one.
+	Robot::driveTrain.get()->JoyDrive(Robot::oi.get()->getDriveStick());//uses two joysticks, future updates will use only one.
 }
 
 // Make this return true when this Command no longer needs to run execute()

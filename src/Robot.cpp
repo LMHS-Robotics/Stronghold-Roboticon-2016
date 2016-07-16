@@ -113,7 +113,6 @@ void Robot::TeleopPeriodic() {
 
 	//SmartDashboard::PutNumber("distance of drive,", Robot::driveTrain.get()->leftEncoder->GetDistance());
 	SmartDashboard::PutNumber("Ultrasanic", Robot::launcher.get()->ultrasanicCalculation());//values for debug purposes
-	SmartDashboard::PutBoolean("State", Robot::flipperSub.get()->getState());
 	SmartDashboard::PutNumber("limit", Robot::flipperSub.get()->limitFipper.get()->Get());
 
 	Scheduler::GetInstance()->Run();
