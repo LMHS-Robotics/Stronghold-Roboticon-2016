@@ -31,7 +31,7 @@ void AutoLaunch::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutoLaunch::Execute() {
-	Robot::launcher->launchRight();
+	Robot::launcher->launchRight();//runs launcher for 5 seconds
 	Robot::launcher->launchLeft();
 }
 
