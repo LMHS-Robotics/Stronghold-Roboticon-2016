@@ -18,7 +18,7 @@ void UnlockBall::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void UnlockBall::Execute()
 {
-	//Robot::launcher.get()->unlock();
+	//Robot::launcher.get()->unlock();//launcher is still unreliable with laocking ball, in testing mode still
 }
 
 // Make this return true when this Command no longer needs to run execute()
