@@ -39,7 +39,7 @@ void BoulderIntake::InitDefaultCommand() {
 
 void BoulderIntake::IntakeUp(){
 
-	intakeUpandDown->Set(0.4);
+	intakeUpandDown->Set(0.4);//sets the intake motor to go up
 
 
 }
@@ -58,6 +58,6 @@ void BoulderIntake::down(){
 
 void BoulderIntake::belts(){
 
-	intakeBeltMotor->Set(1.0);
+	intakeBeltMotor->Set(1.0);//runs the belts on the intake arm
 
 }
