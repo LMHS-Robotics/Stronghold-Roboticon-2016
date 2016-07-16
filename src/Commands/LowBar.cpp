@@ -21,11 +21,11 @@ LowBar::LowBar() {
     // e.g. AddSequential(new Command1());
     //      AddSequential(new Command2());
     // these will run in order.
-	AddSequential(new AutonomousDriveForward());
-	AddSequential(new AutoTurn());
+	AddSequential(new AutonomousDriveForward());//drives forward for 3 seconds
+	AddSequential(new AutoTurn());//turns about 45 degrees
 
-	AddParallel(new AutoLaunch());
-	AddSequential(new AutoFlipperLaunch());
+	AddParallel(new AutoLaunch());//spins up the launcher while timer for flipper starts
+	AddSequential(new AutoFlipperLaunch());//launches after 3 seconds
 	// To run multiple commands at the same time,
     // use AddParallel()
     // e.g. AddParallel(new Command1());
