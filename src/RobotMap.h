@@ -55,7 +55,7 @@ public:
 	static constexpr double CAMERA_PITCH_DEG = 15;
 
 	static constexpr double TANK_WHEEL_DIAMETER = 2.6;
-	static constexpr double TANK_GEAR_RATIO = 10.71/1.00;
+	static constexpr double TANK_GEAR_RATIO = 10.71/1.00;//values for use in encoder and vision calculations
 
 	static constexpr double FLYWHEEL_GEAR_RATIO = 56/45;
 	static constexpr double FLYWHEEL_DIAMETER = 6;
