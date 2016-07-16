@@ -44,19 +44,19 @@ void Robot::RobotInit() {
 
 	datcam = CameraServer::GetInstance();
 	datcam->SetQuality(50);
-	datcam->StartAutomaticCapture("cam2");
+	datcam->StartAutomaticCapture("cam2");//starts capture, video is displayed on custom usb camera plugin on smartdashboard
 
 	choose = new SendableChooser();
 
-	choose->AddDefault("Drive Forward", new AutoDriveOverDefense());
-	choose->AddObject("Low Bar", new LowBar());
+	choose->AddDefault("Drive Forward", new AutoDriveOverDefense());//default is to just drive forward
+	choose->AddObject("Low Bar", new LowBar());//drive under lowbar, turn, and shoot
 
 	SmartDashboard::PutData("Choose the Autonomous Mode", choose);
-	SmartDashboard::PutNumber("Set Launcher Rate", 0.0);
-	SmartDashboard::PutString("Please remember to disable firewall!", "ok");
-	SmartDashboard::PutString("!", "Please allow 3 seconds for flywheel to stabilize!");
-	SmartDashboard::PutString("Launcher Values:", "470 for goal, 400 for person height");
-	//SmartDashboard::PutString("Please enter name of driver: (first name lower case)", "default");
+	SmartDashboard::PutNumber("Set Launcher Rate", 0.0);//number to maanually set launcher rate instead of using distance calculations.
+	SmartDashboard::PutString("Please remember to disable firewall!", "ok");//reminder as we had issues with firewalls
+	SmartDashboard::PutString("!", "Please allow 3 seconds for flywheel to stabilize!");//another note for the driver
+	SmartDashboard::PutString("Launcher Values:", "470 for goal, 400 for person height");//more notes for programming and drivers
+	//SmartDashboard::PutString("Please enter name of driver: (first name lower case)", "default"); //used to have different mappings for each driver, since removed.
 }
 
 /**
@@ -65,17 +65,17 @@ void Robot::RobotInit() {
  */
 void Robot::DisabledInit(){
 
-	SmartDashboard::PutData("Choose the Autonomous Mode", choose);
+	SmartDashboard::PutData("Choose the Autonomous Mode", choose);//makes sure the autonomous mode is populated on startup
 }
 
 void Robot::DisabledPeriodic() {
-	visionTable = NetworkTable::GetTable("GRIP/report");
+	visionTable = NetworkTable::GetTable("GRIP/report");//constantly gets vision data for debug purposes
 	Scheduler::GetInstance()->Run();
 }
 
 void Robot::AutonomousInit() {
 	autonomousCommand.release();
-	autonomousCommand.reset( (Command *) choose->GetSelected() );
+	autonomousCommand.reset( (Command *) choose->GetSelected() ); //takes chosen command and sets it to autonomousCommand
 
 	if (autonomousCommand.get() != nullptr)
 		autonomousCommand->Start();
@@ -98,11 +98,11 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
-	//std::vector<double> centerY = visionTable.get()->GetNumberArray("centerY", 1);
+	//std::vector<double> centerY = visionTable.get()->GetNumberArray("centerY", 1);//vision was not needed so all vision code was commeneted out
 	//std::vector<double> height = visionTable.get()->GetNumberArray("height", 1);
 	//std::vector<double> width = visionTable.get()->GetNumberArray("width", 1);
 
-	/*double y = -((2 * (centerY[1] / height[1])) - 1);
+	/*double y = -((2 * (centerY[1] / height[1])) - 1);//had trouble calculating correct distances, tried 2 different equations
 
 	double distanceFromGoal = (RobotMap::TOP_TARGET_HEIGHT_INCHES - RobotMap::CAMERA_HEIGHT_INCHES) / tan(((y*RobotMap::VERTICAL_FOV_DEG/2.0 + RobotMap::CAMERA_PITCH_DEG)*3.14159265359/180.0));
 	SmartDashboard::PutNumber("Distance from target", distanceFromGoal);*/
@@ -112,7 +112,7 @@ void Robot::TeleopPeriodic() {
 	//SmartDashboard::PutNumber("Distance from target", newDistance);
 
 	//SmartDashboard::PutNumber("distance of drive,", Robot::driveTrain.get()->leftEncoder->GetDistance());
-	SmartDashboard::PutNumber("Ultrasanic", Robot::launcher.get()->ultrasanicCalculation());
+	SmartDashboard::PutNumber("Ultrasanic", Robot::launcher.get()->ultrasanicCalculation());//values for debug purposes
 	SmartDashboard::PutBoolean("State", Robot::flipperSub.get()->getState());
 	SmartDashboard::PutNumber("limit", Robot::flipperSub.get()->limitFipper.get()->Get());
 
