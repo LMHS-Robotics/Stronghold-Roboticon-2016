@@ -16,7 +16,7 @@ void IntakeDownCommand::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void IntakeDownCommand::Execute()
 {
-	Robot::boulderIntake.get()->down();
+	Robot::boulderIntake.get()->down();//intake is being rebuilt, used to go down on the bell and runs belts to suck the ball in, will be reworked completely with new intake
 	Robot::boulderIntake.get()->belts();
 }
 
