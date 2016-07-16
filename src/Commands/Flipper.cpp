@@ -32,7 +32,7 @@ void Flipper::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void Flipper::Execute() {
 
-		Robot::flipperSub.get()->fipUp();
+		Robot::flipperSub.get()->fipUp();//flips up for one second than back down onced timed out
 }
 
 // Make this return true when this Command no longer needs to run execute()
