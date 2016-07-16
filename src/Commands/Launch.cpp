@@ -30,7 +30,7 @@ void Launch::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Launch::Execute() {
-	Robot::launcher.get()->launchRight();
+	Robot::launcher.get()->launchRight();//runs the launcher as button is held
 	Robot::launcher.get()->launchLeft();
 
 }
