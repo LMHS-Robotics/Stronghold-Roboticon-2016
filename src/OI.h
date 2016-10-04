@@ -26,6 +26,7 @@ private:
 	std::shared_ptr<JoystickButton> fire;
 	std::shared_ptr<JoystickButton> intakeUpButton;
 	std::shared_ptr<JoystickButton> intakeDownButton;
+	std::shared_ptr<JoystickButton> intakeWheel;
 	JoystickButton* togButton;
 	ToggledPressedButtonScheduler* togLock;
 

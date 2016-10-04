@@ -25,6 +25,7 @@
 #include "Commands/LowBar.h"
 #include "Commands/LockBall.h"
 #include "Commands/UnlockBall.h"
+#include "Commands/IntakeWheels.h"
 
 OI::OI() {
     // Process operator interface input here.
@@ -34,19 +35,22 @@ OI::OI() {
 
 			    shootStick.reset(new Joystick(1));
 
-			  	    launchBoulder.reset(new JoystickButton(shootStick.get(), 4));
+			  	    launchBoulder.reset(new JoystickButton(shootStick.get(), 2));
 			  	    launchBoulder->WhileHeld(new Launch());
 
-			  	    intakeUpButton.reset(new JoystickButton(shootStick.get(), 3));
+			  	    intakeUpButton.reset(new JoystickButton(shootStick.get(), 5));
 			  	    intakeUpButton->WhileHeld(new IntakeUpCommand());
 
-			  	    intakeDownButton.reset(new JoystickButton(shootStick.get(), 2));
+			  	    intakeDownButton.reset(new JoystickButton(shootStick.get(), 3));
 			  	    intakeDownButton->WhileHeld(new IntakeDownCommand());
+
+			  	    intakeWheel.reset(new JoystickButton(shootStick.get(), 4));
+			  	    intakeWheel->WhileHeld(new IntakeWheels());
 
 			  	    fire.reset(new JoystickButton(shootStick.get(), 1));
 			  		fire->WhenPressed(new Flipper());
 
-			  		togButton = new JoystickButton(shootStick.get(), 5);
+			  		togButton = new JoystickButton(shootStick.get(), 6);
 			  		togLock = new ToggledPressedButtonScheduler(togButton->Grab(), togButton, new LockBall(), new UnlockBall());
 			  		togLock->Start();
 

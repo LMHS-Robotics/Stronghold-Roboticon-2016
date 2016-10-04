@@ -74,23 +74,23 @@ void Launcher::launchRight(){
 		SmartDashboard::PutNumber("Left Motor Speed", leftMotor->Get());
 		SmartDashboard::PutNumber("Right Motor Speed", rightMotor->Get());
 	}else{//if rate is not set manually, calculate and run based on distance. distance calculation is a simple linear equation, however kinematics are being tested for better accuracy. Since encoders are not calculating RPM properly, kinematics are not functioning yet
-		std::vector<double> width = table.get()->GetNumberArray("width", 1);
-		double newDistance = (1.67 * 240) / (2 * width[0]);//distance of vision
-		SmartDashboard::PutNumber("Distance from target", newDistance);
+		//std::vector<double> width = table.get()->GetNumberArray("width", 1);
+		//double newDistance = (1.67 * 240) / (2 * width[0]);//distance of vision
+		//SmartDashboard::PutNumber("Distance from target", newDistance);
 
 			//desiredRate = newDistance * (-50/.929) + 600; //image processing
 			desiredRate = (ultrasanicCalculation() * (-50/37.1)) + 600; // ultrasanic
 
 			//new code to calculate RPM of wheel with distance per pulse at 1, use instead of just rate so kinematics can be used:
-			//double leftRPM = (leftEncoder->GetRate() / 360) / 60;
-			//double rightRPM = (rightEncoder->GetRate() /360) / 60;
+			double leftRPM = (leftEncoder->GetRate() / 360) / 60;
+			double rightRPM = (rightEncoder->GetRate() /360) / 60;
 
 			//desiredRate = sqrt((385.827*(ultrasanicCalculation()^2)) / ultrasanicCalculation - 81 );
 			//desiredRate = sqrt((385.827*((newDistance^2) * 39.3701) * cos(45)) / ultrasanicCalculation - 81 ); //give velocity in inches/second, need RPM
 
 
-			//SmartDashboard::PutNumber("left Rpm", leftRPM);
-			//SmartDashboard::PutNumber("right rpm", rightRPM);
+			SmartDashboard::PutNumber("leftLauncher RPM", leftRPM);
+			SmartDashboard::PutNumber("rightLauncher RPM", rightRPM);
 
 			SmartDashboard::PutNumber("Right Rate", rightEncoder->GetRate());
 			SmartDashboard::PutNumber("Left Rate", leftEncoder->GetRate());

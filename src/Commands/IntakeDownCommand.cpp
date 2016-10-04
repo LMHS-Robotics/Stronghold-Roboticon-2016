@@ -17,7 +17,6 @@ void IntakeDownCommand::Initialize()
 void IntakeDownCommand::Execute()
 {
 	Robot::boulderIntake.get()->down();//intake is being rebuilt, used to go down on the bell and runs belts to suck the ball in, will be reworked completely with new intake
-	Robot::boulderIntake.get()->belts();
 }
 
 // Make this return true when this Command no longer needs to run execute()

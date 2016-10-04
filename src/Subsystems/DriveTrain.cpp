@@ -53,7 +53,7 @@ void DriveTrain::JoyDrive(std::shared_ptr<Joystick> ps3Controller){
 		left = ps3Controller->GetRawAxis(1);
 		right = ps3Controller->GetRawAxis(5);
 		if(fabs(left) >= 0.1 || fabs(right) >= 0.1){ //takes absolute value to make calculations easier.
-					left = -1 * ps3Controller->GetRawAxis(1);
+					left = -1 * ps3Controller->GetRawAxis(1);//inverts left side as going forward requires a negatie value on one side and postive on the other
 					right = ps3Controller->GetRawAxis(5);
 
 						frontLeft->Set(left);//sets motors to values of joysticks
@@ -65,18 +65,11 @@ void DriveTrain::JoyDrive(std::shared_ptr<Joystick> ps3Controller){
 
 }
 
-void DriveTrain::AutoDrive(){//uses encoders for distance drive, easier to use time however
-	double rightDis = rightEncoder->GetDistance();
-	double leftDis = leftEncoder->GetDistance();
-	SmartDashboard::PutNumber("Right Encoder Distance", rightDis); //for debugging purposes
-	SmartDashboard::PutNumber("Left Encoder Distance", leftDis);
-	if(rightDis < 100){//need to see how many counts is one foot
-		double angle = spoopyGyro->GetAngle();
-		robotDrive41->Drive(-0.9, -angle * 0.03);
-		Wait (0.004); //drive using gyro. kp is a set variable that needs to be 0.03. might need further testing to change this value to make sure robot drive straight.
-	}else{//may need to use encoders to drive instead of gyro due to sway of robot.
-		robotDrive41->Drive(0.0, 0.0);//might not be able to use encoders due to defenses.
-	}
+void DriveTrain::ForwardDrive(){
+		frontLeft->Set(1.0);
+		rearLeft->Set(1.0);
+		frontRight->Set(-1.0);
+		rearRight->Set(-1.0);
 }
 
 void DriveTrain::Stop(){
@@ -87,12 +80,18 @@ void DriveTrain::Stop(){
 	rearRight->Set(0.0);
 }
 
-void DriveTrain::ForwardDrive(){
-		frontLeft->Set(1.0);
-		rearLeft->Set(1.0);
-		frontRight->Set(-1.0);
-		rearRight->Set(-1.0);
+void DriveTrain::AutoDrive(){//uses encoders for distance drive, easier to use time however
+	double rightDis = rightEncoder->GetDistance();
+	double leftDis = leftEncoder->GetDistance();
+	SmartDashboard::PutNumber("Right Encoder Distance", rightDis); //for debugging purposes
+	SmartDashboard::PutNumber("Left Encoder Distance", leftDis);
+	if(rightDis < 100){//need to see how many counts is one foot
+		ForwardDrive();
+	}else{//may need to use encoders to drive instead of gyro due to sway of robot.
+		Stop();
+	}
 }
+
 
 void DriveTrain::Turn(){
 
