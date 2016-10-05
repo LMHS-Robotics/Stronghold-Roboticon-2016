@@ -20,6 +20,7 @@
 #include "AutoLaunch.h"
 #include "AutoTurn.h"
 #include "AutoFlipperLaunch.h"
+#include "AutoIntakeDown.h"
 /**
  *
  *

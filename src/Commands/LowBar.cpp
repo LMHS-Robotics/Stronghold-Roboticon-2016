@@ -21,6 +21,7 @@ LowBar::LowBar() {
     // e.g. AddSequential(new Command1());
     //      AddSequential(new Command2());
     // these will run in order.
+	AddSequential(new AutoIntakeDown());
 	AddSequential(new AutonomousDriveForward());//drives forward for 3 seconds
 	AddSequential(new AutoTurn());//turns about 45 degrees
 
