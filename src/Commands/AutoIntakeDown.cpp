@@ -5,7 +5,7 @@ AutoIntakeDown::AutoIntakeDown()
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 	Requires(Robot::boulderIntake.get());
-	SetTimeout(2);
+	SetTimeout(1);
 }
 
 // Called just before this Command runs the first time

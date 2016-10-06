@@ -29,7 +29,7 @@ private:
 	std::shared_ptr<SpeedController> rearLeft;
 	std::shared_ptr<SpeedController> rearRight;
 	std::shared_ptr<RobotDrive> robotDrive41;
-	std::shared_ptr<AnalogGyro> spoopyGyro;
+	//std::shared_ptr<AnalogGyro> spoopyGyro;
 
 
 
@@ -45,8 +45,8 @@ public:
 	void Stop();
 	void ForwardDrive();
 	void Turn();
-	std::shared_ptr<Encoder> rightEncoder;
-	std::shared_ptr<Encoder> leftEncoder;
+	//std::shared_ptr<Encoder> rightEncoder;
+	//std::shared_ptr<Encoder> leftEncoder;
 	float left, right;
 };
 

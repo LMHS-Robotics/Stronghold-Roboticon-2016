@@ -28,8 +28,8 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain") {
     rearLeft = RobotMap::driveTrainrearLeft;
     rearRight = RobotMap::driveTrainrearRight;
     robotDrive41 = RobotMap::driveTrainRobotDrive41;
-    spoopyGyro = RobotMap::driveTrainspoopyGyro;
-    rightEncoder = RobotMap::driveTrainRightEncoder;
+   // spoopyGyro = RobotMap::driveTrainspoopyGyro;
+    //rightEncoder = RobotMap::driveTrainRightEncoder;
 
     left = 0;
     right = 0;
@@ -81,15 +81,15 @@ void DriveTrain::Stop(){
 }
 
 void DriveTrain::AutoDrive(){//uses encoders for distance drive, easier to use time however
-	double rightDis = rightEncoder->GetDistance();
-	double leftDis = leftEncoder->GetDistance();
-	SmartDashboard::PutNumber("Right Encoder Distance", rightDis); //for debugging purposes
-	SmartDashboard::PutNumber("Left Encoder Distance", leftDis);
-	if(rightDis < 100){//need to see how many counts is one foot
-		ForwardDrive();
-	}else{//may need to use encoders to drive instead of gyro due to sway of robot.
-		Stop();
-	}
+	//double rightDis = rightEncoder->GetDistance();
+	//double leftDis = leftEncoder->GetDistance();
+	//SmartDashboard::PutNumber("Right Encoder Distance", rightDis); //for debugging purposes
+	//SmartDashboard::PutNumber("Left Encoder Distance", leftDis);
+	//if(rightDis < 100){//need to see how many counts is one foot
+		//ForwardDrive();
+	//}else{//may need to use encoders to drive instead of gyro due to sway of robot.
+		//Stop();
+	//}
 }
 
 
