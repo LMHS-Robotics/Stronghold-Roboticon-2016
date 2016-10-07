@@ -54,9 +54,7 @@ void Robot::RobotInit() {
 
 	SmartDashboard::PutData("Choose the Autonomous Mode", choose);
 	SmartDashboard::PutNumber("Set Launcher Rate", 0.0);//number to maanually set launcher rate instead of using distance calculations.
-	SmartDashboard::PutString("Please remember to disable firewall!", "ok");//reminder as we had issues with firewalls
 	SmartDashboard::PutString("!", "Please allow 3 seconds for flywheel to stabilize!");//another note for the driver
-	SmartDashboard::PutString("Launcher Values:", "470 for goal, 400 for person height");//more notes for programming and drivers
 	//SmartDashboard::PutString("Please enter name of driver: (first name lower case)", "default"); //used to have different mappings for each driver, since removed.
 }
 
@@ -75,7 +73,7 @@ void Robot::DisabledPeriodic() {
 }
 
 void Robot::AutonomousInit() {
-	//autonomousCommand.release();
+	autonomousCommand.release();
 	autonomousCommand.reset( (Command *) choose->GetSelected() ); //takes chosen command and sets it to autonomousCommand
 
 	if (autonomousCommand.get() != nullptr)
@@ -114,7 +112,6 @@ void Robot::TeleopPeriodic() {
 
 	//SmartDashboard::PutNumber("distance of drive,", Robot::driveTrain.get()->leftEncoder->GetDistance());
 	SmartDashboard::PutNumber("Ultrasanic", Robot::launcher.get()->ultrasanicCalculation());//values for debug purposes
-	SmartDashboard::PutNumber("limit", Robot::flipperSub.get()->limitFipper.get()->Get());
 
 	if(Robot::launcher.get()->distanceCheck){
 		SmartDashboard::PutString("Current Distance Set:", "short distance");

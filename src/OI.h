@@ -27,6 +27,7 @@ private:
 	std::shared_ptr<JoystickButton> intakeUpButton;
 	std::shared_ptr<JoystickButton> intakeDownButton;
 	std::shared_ptr<JoystickButton> intakeWheel;
+	std::shared_ptr<JoystickButton> intakeWheelReverse;
 	JoystickButton* togButton;
 	ToggledPressedButtonScheduler* togDistance;
 

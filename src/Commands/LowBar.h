@@ -21,6 +21,7 @@
 #include "AutoTurn.h"
 #include "AutoFlipperLaunch.h"
 #include "AutoIntakeDown.h"
+#include "AutoIntakeWheels.h"
 /**
  *
  *

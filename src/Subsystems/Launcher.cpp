@@ -54,7 +54,6 @@ double Launcher::ultrasanicCalculation(){//calculations for analog ultrasonic ce
 	const float filter = 0.5;
 
 	distanceInches = distanceInches + filter * ((mvm / 9.375) - distanceInches); // filters noise
-	SmartDashboard::PutNumber("Distance from surface in inches:", distanceInches);
 	return distanceInches;
 
 }

@@ -28,6 +28,7 @@
 #include "Commands/IntakeWheels.h"
 #include "Commands/ShortDistance.h"
 #include "Commands/LongDistance.h"
+#include "Commands/IntakeWheelsReverse.h"
 
 OI::OI() {
     // Process operator interface input here.
@@ -49,8 +50,11 @@ OI::OI() {
 			  	    //intakeDownButton.reset(new JoystickButton(driveStick.get(), 1));
 			  	    //intakeDownButton->WhileHeld(new IntakeDownCommand());
 
-			  	    intakeWheel.reset(new JoystickButton(driveStick.get(), 3));
+			  	    intakeWheel.reset(new JoystickButton(driveStick.get(), 10));
 			  	    intakeWheel->WhileHeld(new IntakeWheels());
+
+			  	    intakeWheelReverse.reset(new JoystickButton(driveStick.get(), 9));
+			  	    intakeWheelReverse->WhileHeld(new IntakeWheelsReverse());
 
 			  	    launchBoulder.reset(new JoystickButton(driveStick.get(), 5));
 			  	    launchBoulder->WhileHeld(new Launch());
@@ -58,7 +62,7 @@ OI::OI() {
 			  	    fire.reset(new JoystickButton(driveStick.get(), 6));
 			  		fire->WhenPressed(new Flipper());
 
-			  		togButton = new JoystickButton(driveStick.get(), 10);
+			  		togButton = new JoystickButton(driveStick.get(), 1);
 			  		togDistance = new ToggledPressedButtonScheduler(togButton->Grab(), togButton, new ShortDistance(), new LongDistance());
 			  		togDistance->Start();
 

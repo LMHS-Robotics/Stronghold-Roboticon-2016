@@ -25,6 +25,7 @@ LowBar::LowBar() {
 	AddSequential(new AutonomousDriveForward());//drives forward for 3 seconds
 	AddSequential(new AutoTurn());//turns about 45 degrees
 
+	AddParallel(new AutoIntakeWheels());
 	AddParallel(new AutoLaunch());//spins up the launcher while timer for flipper starts
 	AddSequential(new AutoFlipperLaunch());//launches after 3 seconds
 	// To run multiple commands at the same time,

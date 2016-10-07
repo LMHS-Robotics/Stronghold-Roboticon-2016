@@ -58,8 +58,8 @@ void BoulderIntake::down(){
 
 }
 
-void BoulderIntake::belts(){
+void BoulderIntake::belts(double speed){
 
-	intakeBeltMotor->Set(1.0);//runs the belts on the intake arm
+	intakeBeltMotor->Set(speed);//runs the belts on the intake arm
 
 }
