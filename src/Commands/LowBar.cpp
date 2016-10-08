@@ -21,11 +21,13 @@ LowBar::LowBar() {
     // e.g. AddSequential(new Command1());
     //      AddSequential(new Command2());
     // these will run in order.
-	AddSequential(new AutoIntakeDown());
+	AddSequential(new AutoIntakeDown());//brings intake down for lowbar
 	AddSequential(new AutonomousDriveForward());//drives forward for 3 seconds
+	AddSequential(new AutoIntakeWheels());//makes sure ball goes in if it fell back into the intake
+	AddSequential(new AutoIntakeUp());//pulls intake up so robot can turn.
 	AddSequential(new AutoTurn());//turns about 45 degrees
 
-	AddParallel(new AutoIntakeWheels());
+	AddSequential(new LongDistance());
 	AddParallel(new AutoLaunch());//spins up the launcher while timer for flipper starts
 	AddSequential(new AutoFlipperLaunch());//launches after 3 seconds
 	// To run multiple commands at the same time,

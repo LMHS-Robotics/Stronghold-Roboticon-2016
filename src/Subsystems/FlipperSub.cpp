@@ -57,7 +57,7 @@ void FlipperSub::fipDown(){
 
 void FlipperSub::fipUp(){//spelt wrong because
 
-	flipperMotor->Set(-0.2);
+	flipperMotor->Set(-0.2);//-.2
 
 }
 
