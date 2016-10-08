@@ -1,7 +1,6 @@
 # Stronghold-Source-2016
 Code name "p0rk3r"
 
-Source Uploaded by Brandon Silva (brandon.silva209@gmail.com) on 7/12/16 at 11:38pm EST
-                -This version uses one ps3 controller to drive for show and tell purposes, actual controllers will be one ps3 and one joystick for two drivers to operate, ps3 for driving and joystick to control intake and launcher.
+Our autonomous code is under the autonomous commands folder in the commands directory. We have two auto modes that are choosen using a smart dashboard widget. The first one just drives forward over a defense. The second one goes under the lowbar, turns, then shoots.
 
-Brandon Silva (brandon.silva209@gmail.com) on 7/15/16: Added documentation for all code for easier understanding and reading.
+The flipper is a metal bar that pushes the ball into the launcher.
