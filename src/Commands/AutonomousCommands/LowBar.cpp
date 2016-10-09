@@ -27,7 +27,7 @@ LowBar::LowBar() {
 	AddSequential(new AutoIntakeUp());//pulls intake up so robot can turn.
 	AddSequential(new AutoTurn());//turns about 45 degrees
 
-	AddSequential(new LongDistance());
+	//AddSequential(new LongDistance());
 	AddParallel(new AutoLaunch());//spins up the launcher while timer for flipper starts
 	AddSequential(new AutoFlipperLaunch());//launches after 3 seconds
 	// To run multiple commands at the same time,

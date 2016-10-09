@@ -33,9 +33,8 @@ void Launch::Initialize() {
 void Launch::Execute() {
 
 	if(Robot::boulderIntake.get()->limitBottom.get()->Get() == 0){
-		for(int x = 0; x < 100; x++){
-			Robot::boulderIntake.get()->IntakeUp();
-		}
+		Robot::boulderIntake.get()->IntakeUp();
+		Wait(1);
 	}else{
 		Robot::boulderIntake.get()->StopIntake();
 		Robot::launcher.get()->launchRight();//runs the launcher as button is held

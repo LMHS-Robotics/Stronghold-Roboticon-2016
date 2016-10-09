@@ -35,7 +35,7 @@ public:
 	std::unique_ptr<Command> autonomousCommand;
 	static std::unique_ptr<OI> oi;
 	LiveWindow *lw = LiveWindow::GetInstance();
-	CameraServer* datcam; //usb camera on roboRio
+	//CameraServer* datcam; //usb camera on roboRio
 	SendableChooser* choose; //chooser that is populated to smartdashboard to choose autonomous mode.
 	std::shared_ptr<NetworkTable> visionTable; //table that populates from vision software on a co-processor
 

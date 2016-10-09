@@ -50,7 +50,7 @@ void FlipperSub::fipDown(){
 	while(limitFipper.get()->Get() == 1){//uses limit switch to stop flipper as it is going down
 		flipperMotor->Set(0.2);
 	}
-	SmartDashboard::PutNumber("limit", limitFipper.get()->Get());//debug purposes
+	//SmartDashboard::PutNumber("limit", limitFipper.get()->Get());//debug purposes
 	flipperMotor->Set(0.0);
 
 }

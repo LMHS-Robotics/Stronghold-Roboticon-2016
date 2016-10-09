@@ -53,6 +53,8 @@ void BoulderIntake::StopIntake(){
 
 void BoulderIntake::down(){
 
+	SmartDashboard::PutNumber("Limit Intake", limitBottom.get()->Get());
+
 	if(limitBottom.get()->Get() == 1){
 		intakeUpandDown->Set(0.8);
 	}else{
