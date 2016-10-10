@@ -72,7 +72,7 @@ void Launcher::launchRight(){
 		}
 	}else{
 		SmartDashboard::PutString("Current Distance Set:", "long distance");
-		desiredRate = 410;
+		desiredRate = 440;
 		if(rightEncoder->GetRate() < desiredRate){
 			rightMotor->Set(0.8);
 		}else{
